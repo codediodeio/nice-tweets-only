@@ -1,0 +1,7 @@
+{
+  "name": "nice-twitter",
+  "type": "angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
