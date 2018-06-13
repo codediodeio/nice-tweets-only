@@ -15,9 +15,10 @@ const cors = require('cors')({
     origin: true
 });
 exports.tweetAnalyzer = functions.https.onRequest((req, res) => __awaiter(this, void 0, void 0, function* () {
+    // res.set('Access-Control-Allow-Origin', '*');
+    // res.set('Access-Control-Allow-Methods', 'POST');
     cors(req, res, () => __awaiter(this, void 0, void 0, function* () {
         const content = req.body.tweet;
-        console.log('go');
         const document = {
             content,
             type: 'PLAIN_TEXT'

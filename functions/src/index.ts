@@ -8,10 +8,10 @@ const cors = require('cors')({
 });
 
 export const tweetAnalyzer = functions.https.onRequest(async (req, res) => {
+  // res.set('Access-Control-Allow-Origin', '*');
+  // res.set('Access-Control-Allow-Methods', 'POST');
   cors(req, res, async () => {
     const content = req.body.tweet;
-
-    console.log('go');
 
     const document = {
       content,
