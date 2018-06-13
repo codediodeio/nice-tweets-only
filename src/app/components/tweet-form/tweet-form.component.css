@@ -1,0 +1,19 @@
+form {
+    text-align: center;
+    padding: 0 10vw;
+}
+
+i {
+    font-size: 4em;
+}
+
+ion-textarea {
+    border: 1px solid rgb(214, 214, 214);
+    border-radius: 3px;
+    min-height: 200px;
+    font-size: 2em;
+}
+
+ion-chip {
+    font-size: 2em;
+}

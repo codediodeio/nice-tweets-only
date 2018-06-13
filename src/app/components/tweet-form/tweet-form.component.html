@@ -1,3 +1,39 @@
-<p>
-  tweet-form works!
-</p>
+<form [formGroup]="tweetForm">
+    <ion-label color="primary" floating>Nice Tweets Only!</ion-label>
+    <ion-textarea type="text" formControlName="content"></ion-textarea>
+
+    <ion-button [disabled]="!tweetForm.valid">Tweet It</ion-button>
+
+    <hr>
+
+    <ion-chip color="dark">
+        <ion-label>How Mean?: {{ errors?.meanTweet || 0 | number }}</ion-label>
+    </ion-chip>
+
+    <hr>
+    <div *ngIf="tweetForm.valid">
+        <i class="em em-heart_eyes"></i>
+    </div>
+
+    <div *ngIf="errors?.meanTweet < 0">
+        <i class="em em-speak_no_evil"></i>
+    </div>
+
+    <div *ngIf="errors?.meanTweet < -0.50">
+        <i class="em em-face_with_open_mouth_vomiting"></i>
+    </div>
+
+    <div *ngIf="errors?.meanTweet < -0.8">
+        <i class="em em-serious_face_with_symbols_covering_mouth"></i>
+    </div>
+
+
+    <div *ngIf="tweetForm.pending">
+        <i class="em em-thinking_face"></i>
+    </div>
+
+    <div *ngIf="tweetForm.pristine">
+        <i class="em em-neutral_face"></i>
+    </div>
+
+</form>

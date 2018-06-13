@@ -6,4 +6,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class NaturalLanguageService {
   constructor(private http: HttpClient) {}
+
+  analyzeSentiment() {}
 }

@@ -1,11 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { TweetFormComponent } from './tweet-form/tweet-form.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  imports: [CommonModule, ReactiveFormsModule, IonicModule.forRoot()],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
+    IonicModule.forRoot()
+  ],
+  exports: [TweetFormComponent],
   declarations: [TweetFormComponent],
   entryComponents: []
 })
