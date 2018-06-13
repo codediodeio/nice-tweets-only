@@ -6,16 +6,8 @@ import {
   AbstractControl
 } from '@angular/forms';
 import { AngularFirestore } from 'angularfire2/firestore';
-import {
-  map,
-  take,
-  debounceTime,
-  filter,
-  tap,
-  switchMap
-} from 'rxjs/operators';
+import { map, take, debounceTime, switchMap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
-// import { NaturalLanguageService } from '../../services/natural-language.service';
 
 @Component({
   selector: 'app-tweet-form',
@@ -42,9 +34,6 @@ export class TweetFormComponent implements OnInit {
 
   niceValidator() {
     return (control: AbstractControl) => {
-      // //
-
-      // const tweet = 'Happy go lucky';
       console.log(control.status);
       const endpoint =
         'http://localhost:5000/firestarter-96e46/us-central1/tweetAnalyzer';
@@ -52,18 +41,11 @@ export class TweetFormComponent implements OnInit {
       return control.valueChanges.pipe(
         debounceTime(500),
         switchMap(v => {
-          return this.http.post(endpoint, { tweet: control.value });
+          return this.http.post<any>(endpoint, { tweet: control.value });
         }),
-        tap(console.log),
         map(res => (res.score < 0 ? { meanTweet: res.score } : null)),
         take(1)
       );
-
-      // return this.http.post(endpoint, { tweet: control.value }).pipe(
-      //   debounceTime(1000),
-      //   tap(console.log),
-      //   map(res => (res.score < 0 ? { meanTweet: res.score } : null))
-      // );
     };
   }
 }
