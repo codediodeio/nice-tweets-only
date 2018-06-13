@@ -1,6 +1,6 @@
-# Nice Tweets Only - Ionic, Cloud Functions, and Language API
+# Nice Tweets Only
 
-This repo demonstrates an Ionic v4 app that can asynchronously validate a form based on sentiment analysis via the Cloud Language API.
+This repo demonstrates an Ionic v4 app that can asynchronously validate a form based on sentiment analysis with Firebase Cloud Functions and the Cloud Language API.
 
 Read the post and watch the screencast (soon).
 
